@@ -41,7 +41,7 @@ public Client(String address, int port)
 		try { 
 			line = input.readLine(); 
 			out.writeUTF(line);
-			system.out.println("Got input from Server ....")
+			system.out.println("Got input from Server ....");
 	        line = in.readUTF(); 
 	        System.out.println("Printing input: " + line); 
 		} catch(Exception i) { 
