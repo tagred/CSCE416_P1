@@ -32,15 +32,14 @@ public Server(int port)
 		/* takes input from the client socket */
 		in = new DataInputStream( 
 		    new BufferedInputStream(socket.getInputStream())); 
-		out = new DataInputStream( 
-			    new BufferedInputStream(socket.getOutputStream())); 
+		out = new DataOutputStream(socket.getOutputStream()); 
 		input = new BufferedReader(new InputStreamReader(System.in)); 
 		String line = ""; 
 		
 		/* reads message from client until "Over" is sent */
 		while (!line.equals("Over")) 
 		{ 
-				system.out.println("Got input from Client ....");
+				System.out.println("Got input from Client ....");
 		        line = in.readUTF(); 
 		        System.out.println("Printing input: " + line); 
 		        line = input.readLine(); 
