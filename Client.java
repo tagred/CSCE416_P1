@@ -25,7 +25,7 @@ public Client(String address, int port)
 	try { 
 		/* takes input from terminal */
 		input = new BufferedReader(new InputStreamReader(System.in)); 
-		in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+		in = new DataInputStream(new BufferedInputStream(socket.getInputStream())); 
 		/* sends output to the socket */
 		out = new DataOutputStream(socket.getOutputStream()); 
 
