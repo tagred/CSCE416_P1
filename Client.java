@@ -1,4 +1,4 @@
-
+//Taylor Gordon
 /* A Java program for a Client */
 import java.net.*; 
 import java.io.*; 
@@ -9,7 +9,7 @@ public class Client
 private Socket socket = null; 
 private BufferedReader input = null; 
 private DataOutputStream out = null; 
-
+private DataOutputStream in = null;
 /* constructor to put ip address and port */
 public Client(String address, int port) 
 { 
@@ -25,7 +25,7 @@ public Client(String address, int port)
 	try { 
 		/* takes input from terminal */
 		input = new BufferedReader(new InputStreamReader(System.in)); 
-
+		in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 		/* sends output to the socket */
 		out = new DataOutputStream(socket.getOutputStream()); 
 
@@ -41,6 +41,9 @@ public Client(String address, int port)
 		try { 
 			line = input.readLine(); 
 			out.writeUTF(line);
+			system.out.println("Got input from Server ....")
+	        line = in.readUTF(); 
+	        System.out.println("Printing input: " + line); 
 		} catch(Exception i) { 
 			System.out.println(i); 
 		} 
@@ -51,6 +54,8 @@ public Client(String address, int port)
 		input.close(); 
 		out.close(); 
 		socket.close(); 
+		in.close();
+		
 	} catch(Exception i) {
 		System.out.println(i);  
 	} 
